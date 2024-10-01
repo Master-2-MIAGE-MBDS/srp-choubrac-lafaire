@@ -1,13 +1,17 @@
+// Main.java
 public class Main {
     public static void main(String[] args) {
         TaskManager taskManager = new TaskManager();
-        taskManager.addTask("Tache 1", "Description de la tache 1");
-        taskManager.addTask("Tache 2", "Description de la tache 2");
-        taskManager.addTask("Tache 3", "Description de la tache 3");
+        TaskOutput reportGenerator = new TaskOutput();
 
-        taskManager.markTaskAsComplete(1);
+        Task task1 = new Task("Tache 1", "Description de la tache 1");
+        Task task2 = new Task("Tache 2", "Description de la tache 2");
 
-        taskManager.printCompletedTasks();
-        taskManager.printPendingTasks();
+        taskManager.addTask(task1);
+        taskManager.addTask(task2);
+
+        taskManager.markTaskAsCompleted("Tache 1");
+
+        reportGenerator.generateReport(taskManager);
     }
 }
